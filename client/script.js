@@ -109,7 +109,7 @@ const handleSubmit = async (e) => {
     } else {
         const err = await response.text()
 
-        messageDiv.innerHTML = "Something went wrong"
+        messageDiv.innerHTML = "Hơi nhiều câu hỏi trong một phút rồi bấy bì cào phím chậm lại đi <3 "
         alert(err)
     }
 }
