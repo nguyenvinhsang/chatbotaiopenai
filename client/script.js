@@ -56,7 +56,7 @@ function chatStripe(isAi, value, uniqueId) {
                       alt="${isAi ? 'bot' : 'user'}" 
                     />
                 </div>
-                <div class="message" id=${uniqueId}>${value}</div>
+                <div class="message" id=${uniqueId}>${isAi ? "Sang Đẹp Trai : "+ ${value} :  "Pet Na : "+ ${value} }</div>
             </div>
         </div>
     `
@@ -70,14 +70,14 @@ const handleSubmit = async (e) => {
     const data = new FormData(form)
 
     // user's chatstripe
-    chatContainer.innerHTML += "Sang Đẹp Trai" + chatStripe(false, data.get('prompt'))
+    chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
 
     // to clear the textarea input 
     form.reset()
 
     // bot's chatstripe
     const uniqueId = generateUniqueId()
-    chatContainer.innerHTML += "Pet Na" +chatStripe(true, " ", uniqueId)
+    chatContainer.innerHTML += chatStripe(true, " ", uniqueId)
 
     // to focus scroll to the bottom 
     chatContainer.scrollTop = chatContainer.scrollHeight;
