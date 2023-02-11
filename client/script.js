@@ -5,7 +5,6 @@ const form = document.querySelector('form')
 const chatContainer = document.querySelector('#chat_container')
 
 let loadInterval
-var arr=[]
 
 function loader(element) {
     element.textContent = ''
@@ -34,9 +33,6 @@ function typeText(element, text) {
     }, 20)
 }
 
-// generate unique ID for each message div of bot
-// necessary for typing text effect for that specific reply
-// without unique ID, typing text will work on every element
 function generateUniqueId() {
     const timestamp = Date.now();
     const randomNumber = Math.random();
@@ -47,13 +43,13 @@ function generateUniqueId() {
 
 function chatStripe(isAi, value, uniqueId) {
     return (
-        `
+   `
         <div class="wrapper ${isAi && 'ai'}">
             <div class="chat">
                 <div class="profile">
                     <img 
                       src=${isAi ? bot : user} 
-                      alt="${isAi ? 'bot' : 'user'}" 
+                      alt=${isAi ? 'bot' : 'user'}
                     />
                 </div>
                 <div class="message" id=${uniqueId}>${value}</div>
