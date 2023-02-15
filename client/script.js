@@ -14,7 +14,7 @@ function loader(element) {
         element.textContent += '.';
 
         // If the loading indicator has reached three dots, reset it
-        if (element.textContent === '....') {
+        if (element.textContent === '......') {
             element.textContent = '';
         }
     }, 300);
@@ -72,14 +72,14 @@ const handleSubmit = async (e) => {
     form.reset()
 
     // bot's chatstripe
-    const uniqueIdBot = generateUniqueId()
-    chatContainer.innerHTML += chatStripe(true, " ",uniqueIdBot)
+    const uniqueIDdBot = generateUniqueId()
+    chatContainer.innerHTML += chatStripe(true, " ",uniqueIDdBot)
 
     // to focus scroll to the bottom 
     chatContainer.scrollTop = chatContainer.scrollHeight;
 
     // specific message div 
-    const messageDiv = document.getElementById(uniqueIdBot)
+    const messageDiv = document.getElementById(uniqueIDdBot)
 
     // messageDiv.innerHTML = "..."
     loader(messageDiv)
