@@ -43,7 +43,7 @@ function generateUniqueId() {
 
 function chatStripe(isAi, value, uniqueId) {
     return (
-   `
+        `
         <div class="wrapper ${isAi && 'ai'}">
             <div class="chat">
                 <div class="profile">
@@ -66,14 +66,14 @@ const handleSubmit = async (e) => {
     const data = new FormData(form)
 
     // user's chatstripe
-    const uniqueIdUser=generateUniqueId()
-    chatContainer.innerHTML += chatStripe(false, data.get('prompt'),uniqueIdUser)
+    const uniqueIdUser = generateUniqueId()
+    chatContainer.innerHTML += chatStripe(false, data.get('prompt'), uniqueIdUser)
     // to clear the textarea input 
     form.reset()
 
     // bot's chatstripe
     const uniqueIDdBot = generateUniqueId()
-    chatContainer.innerHTML += chatStripe(true, " ",uniqueIDdBot)
+    chatContainer.innerHTML += chatStripe(true, " ", uniqueIDdBot)
 
     // to focus scroll to the bottom 
     chatContainer.scrollTop = chatContainer.scrollHeight;
@@ -83,8 +83,10 @@ const handleSubmit = async (e) => {
 
     // messageDiv.innerHTML = "..."
     loader(messageDiv)
-    
-    const response = await fetch('https://chatbot-8b3l.onrender.com/', {
+
+    const response = await fetch('http://localhost:5000/', {
+
+        // const response = await fetch('https://chatbot-8b3l.onrender.com/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -106,7 +108,7 @@ const handleSubmit = async (e) => {
         const err = await response.text()
 
         messageDiv.innerHTML = "Hơi nhiều câu hỏi trong một phút rồi bấy bì cào phím chậm lại đi <3 "
-        alert(err)
+        //alert(err)
     }
 }
 
